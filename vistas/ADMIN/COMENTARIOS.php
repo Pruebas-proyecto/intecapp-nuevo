@@ -1,0 +1,93 @@
+<?php include 'header.php'; ?>
+<?php include 'nav_bar.php'; ?>
+<?php include 'menu.php'; ?><h1>COMENTARIOS</h1>
+  
+
+<h1>Área de Mantenimiento</h1>
+   
+
+   <div class="container-fluid table-responsive-lg">
+       <table id="table-edit" class="table table-bordered table-hover">
+           <thead>
+               <tr>
+                   <th>Año</th>
+                   <th>Nombre del Encargado</th>
+                   <th>Taller</th>
+                   <th>Fecha de Reporte</th>
+                   <th>Fecha de Realizado</th>
+                   <th>Estado</th>
+           </thead>
+           <tbody>
+               <tr>
+                    <?php include 'listas/comentario_list.php'; ?>
+               </tr>
+           </tbody>
+       </table>
+       
+           <h1>Lista de comentarios</h1>
+
+    <div>
+        <table id="table-edit" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Fecha</th>
+                    <th>Comentario</th>
+                    <th>Acciones</th>
+            </thead>
+                <tbody>
+                    <tr>
+                        <?php include 'listas/comentario_list2.php'; ?>
+                    </tr>
+                </tbody>
+        </table>
+    </div>
+
+   </div>
+
+
+<h1>Agregar comentario</h1>
+    <div class="container-fluid">
+        <!-- Botón de hipervínculo alineado a la derecha -->
+        <div class="mb-3 text-left">
+        <form action="../../modelos/comentario_add.php" method="post" style="text-align: left;">
+            <input type="hidden" id="id_mantenimiento" name="id_mantenimiento" value="<?php echo $id_mantenimiento;?>" required style="border: 1px solid #207ffc; padding: 4px; width: 30%;">
+            <textarea class="table-responsive-lg" id="Comentario" name="Comentario" rows="4" cols="50"></textarea>
+
+            <button type="submit" class="btn-accion btn-guardar" style="display: inline-block; width: 120px; padding: 10px 0; background-color: #007bff; color: white; 
+                    font-size: 13px; font-family: 'Arial', serif; text-decoration: none; border-radius: 4px; text-align: center; border: none;" name="add" id="add">
+                    <i class="fas fa-plus"></i> Agregar
+            </button>
+               
+            <button type="reset" class="btn-accion btn-limpiar" style="display: inline-block; width: 120px; padding: 10px 0; background-color: #f44336; color: white; 
+                    font-size: 13px; font-family: 'Arial', serif; text-decoration: none; border-radius: 4px; text-align: center; border: none;" name="reset" id="reset">
+                    <i class="fa fa-eraser"></i> Limpiar
+            </button>
+
+            <button type="button" class="btn-accion btn-salir" style="display: inline-block; width: 120px; padding: 10px 0; background-color: #555555; color: white; 
+                    font-size: 13px; font-family: 'Arial', serif; text-decoration: none; border-radius: 4px; text-align: center; border: none;" name="exit" id="exit" onclick="window.location.href='../ADMIN/MANTENIMIENTO.php'">
+                    <i class="fa fa-sign-out"></i> <i class="fa fa-arrow-right"></i> Regresar
+            </button>
+        </form>
+
+<br><br><br>
+        </div>
+    </div>
+   
+   <!-- Pie de página -->
+   <footer>
+       <p>&copy; INTECAP, QUICHÉ</p>
+   </footer>
+</div>
+
+<?php include 'footer.php'; ?>
+</div><!-- .main-container -->
+
+<!-- jQuery y Bootstrap JS  -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<!--Samayoa-->
+
+</body>
+</html>
+<?php include '../../controladores/comentario.php'; ?>
