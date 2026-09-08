@@ -4,6 +4,7 @@
     $talleres = array();
     $participantes = array();
 
+<<<<<<< HEAD
     $sql = "SELECT * FROM talleres";
     $query = $conn->query($sql);   
 
@@ -13,6 +14,42 @@
     }
 
     $talleres = json_encode($talleres);
+=======
+    $sql = "SELECT t.*, COALESCE(
+                u.nombre,
+                (SELECT i.nom_instructor
+                 FROM instructor AS i
+                 WHERE i.id_talleres = CAST(t.id AS CHAR)
+                 ORDER BY i.id DESC
+                 LIMIT 1)
+            ) AS nom_instructor
+            FROM talleres AS t
+            LEFT JOIN usuario AS u ON u.id = t.id_instructor";
+
+    $cargo = trim($user['cargo'] ?? '');
+    if ($cargo === 'Instructor') {
+        $areaInstructor = trim($user['area_especializacion'] ?? '');
+        if ($areaInstructor !== '') {
+            $areaInstructor = $conn->real_escape_string($areaInstructor);
+            $sql .= " WHERE u.area_especializacion = '$areaInstructor'";
+        } else {
+            $idInstructor = (int) ($user['id'] ?? 0);
+            $sql .= " WHERE t.id_instructor = $idInstructor";
+        }
+    }
+
+    $query = $conn->query($sql);   
+
+    if ($query) {
+        while($row = $query->fetch_assoc()){
+            $nombreInstructor = $row['nom_instructor'] ?: 'Sin instructor';
+            array_push($talleres, $row['nombre_taller'] . ' - ' . $nombreInstructor);
+            array_push($participantes, (int) ($row['participantes'] ?? 0));
+        }
+    }
+
+    $talleres = json_encode($talleres, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);
+>>>>>>> otro-repo/main
     $participantes = json_encode($participantes);
 ?>
 
@@ -38,7 +75,15 @@
     window.onload = function() {
 
     // Gráfico de Barras (Bar Chart)
+<<<<<<< HEAD
     var ctxBar = document.getElementById('barChart').getContext('2d');
+=======
+    var canvasBar = document.getElementById('barChart');
+    if (!canvasBar) {
+        return;
+    }
+    var ctxBar = canvasBar.getContext('2d');
+>>>>>>> otro-repo/main
     
     var barChart = new Chart(ctxBar, {
         type: 'bar',

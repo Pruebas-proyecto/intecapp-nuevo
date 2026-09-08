@@ -2,6 +2,10 @@
 include('db.php');
 
 $instructor           = $_POST['instructor']           ?? '0';
+<<<<<<< HEAD
+=======
+$modulo_origen        = $_POST['modulo_origen']        ?? '';
+>>>>>>> otro-repo/main
 $id                   = $_POST['id']                   ?? '';
 $nombre               = $_POST['nombre']               ?? '';
 $telefono              = $_POST['telefono']             ?? '';
@@ -11,6 +15,7 @@ $correo               = trim($_POST['correo']          ?? '');
 $estado               = $_POST['estado']                ?? '';
 $area_especializacion = $_POST['area_especializacion'] ?? '';
 
+<<<<<<< HEAD
 // La página de edición vuelve a ir aquí si algo falla. Usamos un
 // redirect normal (document.location) en vez de history.back(): un
 // history.back() se clasifica como navegación "back_forward" y el
@@ -44,6 +49,24 @@ if ($correo !== '') {
     }
     $stmtCheck->close();
 }
+=======
+// ── Validación del correo ──────────────────────────────────────────
+if ($correo === '' || !filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+    echo "<script>alert('Debes ingresar un correo electrónico válido.'); history.back();</script>";
+    exit;
+}
+
+$stmtCheck = $conn->prepare("SELECT id FROM usuario WHERE correo = ? AND id <> ?");
+$stmtCheck->bind_param("si", $correo, $id);
+$stmtCheck->execute();
+$stmtCheck->store_result();
+if ($stmtCheck->num_rows > 0) {
+    $stmtCheck->close();
+    echo "<script>alert('Ese correo ya está registrado con otra cuenta.'); history.back();</script>";
+    exit;
+}
+$stmtCheck->close();
+>>>>>>> otro-repo/main
 // ────────────────────────────────────────────────────────────────────
 
 if ($cargo !== 'Instructor') {
@@ -62,6 +85,7 @@ if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
     $foto_sql = ', foto = ?';
 }
 
+<<<<<<< HEAD
 // Si no mandaron correo, no lo tocamos en el UPDATE (así no se borra
 // el correo que ya tenía el usuario cuando el formulario, como el de
 // Instructores, no incluye ese campo).
@@ -90,12 +114,35 @@ $stmt->bind_param($tipos, ...$valores);
 if ($stmt->execute()) {
     echo "<script>alert('Registro actualizado correctamente.');</script>";
     if ($instructor == '1') {
+=======
+if ($foto_param !== null) {
+    $stmt = $conn->prepare("UPDATE usuario 
+                            SET nombre = ?, telefono = ?, cargo = ?, nom_usuario = ?, correo = ?, estado = ?, area_especializacion = ?, foto = ?
+                            WHERE id = ?");
+    $stmt->bind_param("ssssssssi", $nombre, $telefono, $cargo, $nom_usuario, $correo, $estado, $area_especializacion, $foto_param, $id);
+} else {
+    $stmt = $conn->prepare("UPDATE usuario 
+                            SET nombre = ?, telefono = ?, cargo = ?, nom_usuario = ?, correo = ?, estado = ?, area_especializacion = ?
+                            WHERE id = ?");
+    $stmt->bind_param("sssssssi", $nombre, $telefono, $cargo, $nom_usuario, $correo, $estado, $area_especializacion, $id);
+}
+
+if ($stmt->execute()) {
+    echo "<script>alert('Registro actualizado correctamente.');</script>";
+    if ($modulo_origen === 'usuarios') {
+        echo "<script>document.location='/intecapp/vistas/ADMIN/USUARIO.php'</script>";
+    } elseif ($instructor == '1') {
+>>>>>>> otro-repo/main
         echo "<script>document.location='/intecapp/vistas/ADMIN/INSTRUCTORES.php'</script>";
     } else {
         echo "<script>document.location='/intecapp/vistas/ADMIN/USUARIO.php'</script>";
     }
 } else {
+<<<<<<< HEAD
     echo "<script>alert('Error al actualizar: " . addslashes($stmt->error) . "'); document.location='$backUrl';</script>";
+=======
+    echo "<script>alert('Error al actualizar: " . addslashes($stmt->error) . "'); history.back();</script>";
+>>>>>>> otro-repo/main
 }
 
 $stmt->close();

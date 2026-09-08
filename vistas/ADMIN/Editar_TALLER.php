@@ -24,6 +24,27 @@
         </div>
 
         <div class="form-group">
+<<<<<<< HEAD
+=======
+            <label for="id_instructor">Instructor a Cargo</label>
+            <select name="id_instructor" id="id_instructor" required>
+                <option value="">Seleccione</option>
+                <?php
+                $selectedInstructorId = isset($row['id_instructor']) ? (int) $row['id_instructor'] : 0;
+                $instructoresSql = $user['cargo'] === 'Instructor'
+                    ? "SELECT id, nombre FROM usuario WHERE id = " . (int) $user['id']
+                    : "SELECT id, nombre FROM usuario WHERE cargo IN ('Instructor', 'Admin') ORDER BY nombre";
+                $instructoresQuery = $conn->query($instructoresSql);
+                while ($instructor = $instructoresQuery->fetch_assoc()) {
+                    $selected = $selectedInstructorId === (int) $instructor['id'] ? 'selected' : '';
+                    echo '<option value="' . (int) $instructor['id'] . '" ' . $selected . '>' . htmlspecialchars($instructor['nombre']) . '</option>';
+                }
+                ?>
+            </select>
+        </div>
+
+        <div class="form-group">
+>>>>>>> otro-repo/main
             <label for="participantes">Participantes</label>
             <input type="text" id="participantes" name="participantes" value="<?php echo htmlspecialchars($row['participantes']); ?>" required>
         </div>
@@ -40,7 +61,11 @@
 
             <button type="button" class="btn-salir" name="exit" id="exit"
                 onclick="window.location.href='../ADMIN/TALLERES.php'">
+<<<<<<< HEAD
                 <i class="fa fa-sign-out"></i> <i class="fa fa-arrow-right"></i> Salir
+=======
+                <i class="fa fa-sign-out"></i> Volver
+>>>>>>> otro-repo/main
             </button>
         </div>
 

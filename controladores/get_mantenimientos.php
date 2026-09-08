@@ -23,6 +23,16 @@ $id_sesion = intval($_SESSION['admin_intecap']);
 $user      = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM usuario WHERE id = $id_sesion"));
 $estado    = isset($_GET['estado']) ? $_GET['estado'] : 'General';
 
+<<<<<<< HEAD
+=======
+// Si el usuario no es Admin, restringir los mantenimientos a los que está
+// relacionado (encargado o solicitante). Los Admins ven todo.
+$whereUser = '';
+if ($user['cargo'] !== 'Admin') {
+    $whereUser = " AND (m.id_encargado = $id_sesion OR m.id_solicitante = $id_sesion)";
+}
+
+>>>>>>> otro-repo/main
 if ($estado == 'Pendiente') {
     $sql = "SELECT m.*, m.id as id_mantenimiento, m.estado as estado_m,
                    t.nombre_taller, u.nombre, u.cargo, u2.nombre AS nombre_reporta
@@ -30,7 +40,11 @@ if ($estado == 'Pendiente') {
             INNER JOIN talleres t ON m.id_taller = t.id
             INNER JOIN usuario  u ON u.id = m.id_encargado
             LEFT JOIN usuario u2 ON u2.id = m.id_solicitante
+<<<<<<< HEAD
             WHERE m.estado = 'no realizado'
+=======
+            WHERE m.estado = 'no realizado' $whereUser
+>>>>>>> otro-repo/main
             ORDER BY m.f_reporte DESC, m.id DESC";
 
 } elseif ($estado == 'Realizados') {
@@ -40,7 +54,11 @@ if ($estado == 'Pendiente') {
             INNER JOIN talleres t ON m.id_taller = t.id
             INNER JOIN usuario  u ON u.id = m.id_encargado
             LEFT JOIN usuario u2 ON u2.id = m.id_solicitante
+<<<<<<< HEAD
             WHERE m.estado = 'Realizada'
+=======
+            WHERE m.estado = 'Realizada' $whereUser
+>>>>>>> otro-repo/main
             ORDER BY m.f_reporte DESC, m.id DESC";
 
 } elseif ($estado == 'Mes') {
@@ -52,7 +70,11 @@ if ($estado == 'Pendiente') {
             INNER JOIN talleres t ON m.id_taller = t.id
             INNER JOIN usuario  u ON u.id = m.id_encargado
             LEFT JOIN usuario u2 ON u2.id = m.id_solicitante
+<<<<<<< HEAD
             WHERE MONTH(f_reporte) = $mes AND YEAR(f_reporte) = $ano
+=======
+            WHERE MONTH(f_reporte) = $mes AND YEAR(f_reporte) = $ano $whereUser
+>>>>>>> otro-repo/main
             ORDER BY m.f_reporte DESC, m.id DESC";
 
 } else {
@@ -62,6 +84,10 @@ if ($estado == 'Pendiente') {
             INNER JOIN talleres t ON m.id_taller = t.id
             INNER JOIN usuario  u ON u.id = m.id_encargado
             LEFT JOIN usuario u2 ON u2.id = m.id_solicitante
+<<<<<<< HEAD
+=======
+            WHERE 1=1 $whereUser
+>>>>>>> otro-repo/main
             ORDER BY m.f_reporte DESC, m.id DESC";
 }
 

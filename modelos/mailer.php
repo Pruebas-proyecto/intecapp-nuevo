@@ -45,6 +45,7 @@ function enviarCorreo(string $destino, string $asunto, string $cuerpoHtml): bool
 {
     global $__phpmailer_disponible;
 
+<<<<<<< HEAD
     // Método por API HTTP (Brevo): evita por completo los puertos SMTP
     // (25/465/587), que muchos routers/ISP bloquean. Usa HTTPS (443),
     // el mismo puerto que cualquier página web.
@@ -52,6 +53,8 @@ function enviarCorreo(string $destino, string $asunto, string $cuerpoHtml): bool
         return enviarCorreoBrevoAPI($destino, $asunto, $cuerpoHtml);
     }
 
+=======
+>>>>>>> otro-repo/main
     if (SMTP_ENABLED && $__phpmailer_disponible) {
         return enviarCorreoSMTP($destino, $asunto, $cuerpoHtml);
     }
@@ -67,6 +70,7 @@ function enviarCorreo(string $destino, string $asunto, string $cuerpoHtml): bool
 }
 
 /**
+<<<<<<< HEAD
  * Envío vía API HTTP de Brevo (https://api.brevo.com), usando cURL sobre
  * HTTPS (puerto 443). No requiere abrir ni depender de los puertos SMTP,
  * que routers/ISP suelen bloquear.
@@ -122,6 +126,8 @@ function enviarCorreoBrevoAPI(string $destino, string $asunto, string $cuerpoHtm
 }
 
 /**
+=======
+>>>>>>> otro-repo/main
  * Envío real vía SMTP usando PHPMailer.
  */
 function enviarCorreoSMTP(string $destino, string $asunto, string $cuerpoHtml): bool

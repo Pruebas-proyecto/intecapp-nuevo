@@ -58,8 +58,13 @@ $rolUsuario = strtolower($rolUsuario);
         <?php } ?>
     </div>
 
+<<<<<<< HEAD
    <div class="container-fluid table-responsive-lg">
        <table id="table-edit" class="table table-bordered table-hover">
+=======
+   <div class="container-fluid table-responsive-lg admin-pilot-table-wrap">
+       <table id="table-edit" class="table table-bordered table-hover rounded overflow-hidden admin-pilot-table">
+>>>>>>> otro-repo/main
            <thead>
                <tr>
                    <th>Fecha</th> 
@@ -78,8 +83,13 @@ $rolUsuario = strtolower($rolUsuario);
                 <?php include('listas/asistencia_list.php'); ?>
            </tbody>
        </table>
+<<<<<<< HEAD
        <br><br>
    </div>
+=======
+    </div>
+    <br><br>
+>>>>>>> otro-repo/main
 </div>
    
    <footer>

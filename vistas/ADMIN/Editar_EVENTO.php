@@ -83,7 +83,11 @@
                     </button>
                     
                     <button type="button" class="btn-accion btn-salir" name="exit" id="exit" onclick="window.location.href='../ADMIN/EVENTOS.php'">
+<<<<<<< HEAD
                         <i class="fa fa-sign-out"></i> <i class="fa fa-arrow-right"></i> Salir
+=======
+                        <i class="fa fa-sign-out"></i> Volver
+>>>>>>> otro-repo/main
                     </button>
                 </div>
             </div>

@@ -51,7 +51,11 @@
                     </button>
 
                     <button type="button" class="btn-accion btn-salir" name="exit" id="exit" onclick="window.location.href='../ADMIN/INSTRUCTORES.php'">
+<<<<<<< HEAD
                         <i class="fa fa-sign-out"></i> Salir
+=======
+                        <i class="fa fa-sign-out"></i> Volver
+>>>>>>> otro-repo/main
                     </button>
                 </div>
             </div>

@@ -83,6 +83,10 @@ include('../../../modelos/db.php');
             <tr>
               <th> Año </th>
               <th> Nombre del Taller </th>
+<<<<<<< HEAD
+=======
+              <th> Instructor a Cargo </th>
+>>>>>>> otro-repo/main
               <th> Participantes </th>
               <th> Condición</th>
               <th> Estado </th>
@@ -91,7 +95,14 @@ include('../../../modelos/db.php');
         <tbody>
 
         <?php 
+<<<<<<< HEAD
         $sql = "SELECT * FROM talleres";
+=======
+        $sql = "SELECT t.*, u.nombre AS nombre_instructor
+                FROM talleres AS t
+                LEFT JOIN usuario AS u ON u.id = t.id_instructor
+                ORDER BY t.anio DESC, t.nombre_taller ASC";
+>>>>>>> otro-repo/main
         $query = $conn->query($sql);
         while($row = $query->fetch_assoc()){
             $id_taller = $row['id'];
@@ -99,6 +110,10 @@ include('../../../modelos/db.php');
           <tr>
               <td><?php echo $row['anio'];?></td>
               <td><?php echo $row['nombre_taller'];?></td>
+<<<<<<< HEAD
+=======
+              <td><?php echo htmlspecialchars($row['nombre_instructor'] ?? 'Sin asignar', ENT_QUOTES, 'UTF-8');?></td>
+>>>>>>> otro-repo/main
               <td><?php echo $row['participantes'];?></td>
               <td><?php echo $row['condicion'];?></td>
               <td><?php echo $row['estado'];?></td>

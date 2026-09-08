@@ -53,6 +53,7 @@ html, body {
     color: var(--color-header-texto) !important;
 }
 
+<<<<<<< HEAD
 /* Menú lateral - PROTEGER ICONOS */
 .side-menu, .side-menu-compact, .nav-drawer {
     background-color: var(--color-header) !important;
@@ -68,6 +69,8 @@ html, body {
     color: var(--color-primario) !important;
 }
 
+=======
+>>>>>>> otro-repo/main
 /* Menús desplegables */
 .dropdown-menu, .user-menu .dropdown-menu {
     background-color: var(--color-panel) !important;
@@ -93,6 +96,7 @@ html, body {
     background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
+<<<<<<< HEAD
 /* PROTEGER ICONOS DEL MENÚ - MANTENER AZUL ORIGINAL */
 .side-menu i, .side-menu-compact i, .nav-drawer i, .side-menu-list i,
 .side-menu [class*="icon"], .side-menu-compact [class*="icon"],
@@ -101,6 +105,8 @@ html, body {
     color: #007bff !important;
 }
 
+=======
+>>>>>>> otro-repo/main
 /* Paneles y contenedores */
 .main-container {
     background-color: var(--color-fondo) !important;
@@ -136,6 +142,7 @@ body.dark-mode .input-group-text i {
     color: #ffffff !important; 
 }
 
+<<<<<<< HEAD
 /* 1. Obligamos a los campos a usar el color dinámico del portal */
 .form-control, 
 .form-select {
@@ -223,6 +230,8 @@ table tbody tr:hover {
     border: 1px solid var(--color-borde) !important;
 }
 
+=======
+>>>>>>> otro-repo/main
 /* Footer y NavBar Extras */
 footer, .navbar {
     background-color: var(--color-header) !important;

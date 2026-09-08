@@ -14,12 +14,20 @@
             <center>
             <p>
                 <label for="nombre" style="color: #000000;">Contraseña Nueva</label><br>
+<<<<<<< HEAD
                 <input type="password" id="contraseña" name="contraseña" onkeyup="comparar();" required style="border: 1px solid #207ffc; padding: 4px; width: 30%;">
+=======
+                <input type="password" id="password" name="password" onkeyup="comparar();" required style="border: 1px solid #207ffc; padding: 4px; width: 30%;">
+>>>>>>> otro-repo/main
             </p>
             
             <p>
                 <label for="email" style="color: #000000;">Repetir contraseña</label><br>
+<<<<<<< HEAD
                 <input type="password" id="contraseña1" name="contraseña1" onkeyup="comparar();" required style="border: 1px solid #207ffc; padding: 4px; width: 30%;">
+=======
+                <input type="password" id="password1" name="password1" onkeyup="comparar();" required style="border: 1px solid #207ffc; padding: 4px; width: 30%;">
+>>>>>>> otro-repo/main
             </p>
             <style type="text/css">
                 .ocultar {
@@ -43,10 +51,17 @@
                     font-size: 13px; font-family: 'Times New Roman', serif; text-decoration: none; border-radius: 1px; text-align: center;" name="add" id="add"><i class="fa fa-save"></i> Guardar</button>
 
                 <button type="reset" class="limpiar" style="display: inline-block; width: 120px; padding: 10px 0; background-color: #f44336; color: white; 
+<<<<<<< HEAD
                     font-size: 13px; font-family: 'Times New Roman', serif; text-decoration: none; border-radius: 1px; text-align: center;" name="reset" id="reset"><i class="fa fa-eraser"></i> Limpiar</button>
                 <button type="button" class="salir" style="display: inline-block; width: 120px; padding: 10px 0; background-color: #555555; color: white; 
                     font-size: 13px; font-family: 'Times New Roman', serif; text-decoration: none; border-radius: 1px; text-align: center;" name="exit" id="exit" onclick="window.location.href='../ADMIN/INSTRUCTORES.php'">              
                     <i class="fa fa-sign-out"></i> <i class="fa fa-arrow-right"></i> Salir
+=======
+                    font-size: 13px; font-family: 'Times New Roman', serif; text-decoration: none; border-radius: 1px; text-align: center;" name="reset" id="reset"><i class="fa fa-eraser"></i>                     Limpiar formulario</button>
+                <button type="button" class="salir" style="display: inline-block; width: 120px; padding: 10px 0; background-color: #555555; color: white;
+                    font-size: 13px; font-family: 'Times New Roman', serif; text-decoration: none; border-radius: 1px; text-align: center;" name="exit" id="exit" onclick="window.location.href='../ADMIN/INSTRUCTORES.php'">              
+                    <i class="fa fa-sign-out"></i> Volver
+>>>>>>> otro-repo/main
                 </button><br><br><br>
     </form>        
     <!-- Pie de página -->

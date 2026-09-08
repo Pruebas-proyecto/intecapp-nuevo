@@ -40,7 +40,11 @@ if ($nom_usuario === '' || $correo === '') {
     exit;
 }
 
+<<<<<<< HEAD
 $stmt = $conn->prepare("SELECT id, nombre, correo, contraseña FROM usuario WHERE nom_usuario = ?");
+=======
+$stmt = $conn->prepare("SELECT id, nombre, correo, password FROM usuario WHERE nom_usuario = ?");
+>>>>>>> otro-repo/main
 $stmt->bind_param("s", $nom_usuario);
 $stmt->execute();
 $resultado = $stmt->get_result();
@@ -92,7 +96,11 @@ if (strcasecmp($correo, $correoReal) !== 0) {
 // Fragmento del hash de la contraseña actual. Es lo que hace que el
 // token deje de servir en cuanto el usuario cambie su contraseña,
 // sin necesitar tabla ni columna "usado".
+<<<<<<< HEAD
 $fragmentoHash = substr($usuario['contraseña'] ?? '', 0, 12);
+=======
+$fragmentoHash = substr($usuario['password'] ?? '', 0, 12);
+>>>>>>> otro-repo/main
 
 $token = generarJWT(
     [

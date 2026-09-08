@@ -5,13 +5,17 @@
  * Valida el token antes de mostrar el formulario de nueva contraseña.
  */
 include '../../modelos/db.php';
+<<<<<<< HEAD
 include '../../modelos/jwt_helper.php';
 include '../../modelos/config.php';
+=======
+>>>>>>> otro-repo/main
 
 $token = $_GET['token'] ?? '';
 $tokenValido = false;
 
 if ($token !== '') {
+<<<<<<< HEAD
     $payload = verificarJWT($token, JWT_SECRET);
 
     if ($payload !== null && isset($payload['uid'], $payload['phv'])) {
@@ -27,6 +31,20 @@ if ($token !== '') {
             $tokenValido = true;
         }
     }
+=======
+    $stmt = $conn->prepare("SELECT expira, usado FROM recuperacion_password WHERE token = ?");
+    $stmt->bind_param("s", $token);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+
+    if ($resultado->num_rows === 1) {
+        $fila = $resultado->fetch_assoc();
+        if ((int) $fila['usado'] === 0 && strtotime($fila['expira']) >= time()) {
+            $tokenValido = true;
+        }
+    }
+    $stmt->close();
+>>>>>>> otro-repo/main
 }
 $conn->close();
 ?>
@@ -235,12 +253,21 @@ $conn->close();
             <form action="../../modelos/pass_olvidada.php" method="post" autocomplete="off">
                 <input type="hidden" name="token" value="<?php echo htmlspecialchars($token); ?>">
                 <div class="input-group">
+<<<<<<< HEAD
                     <label for="contrasena"><i class="fa-solid fa-lock"></i>Nueva Contraseña</label>
                     <input type="password" id="contrasena" name="contraseña" onkeyup="comparar();" class="input-field" placeholder="••••••••" required>
                 </div>
                 <div class="input-group">
                     <label for="contrasena1"><i class="fa-solid fa-lock-open"></i>Confirmar Contraseña</label>
                     <input type="password" id="contrasena1" name="contraseña1" onkeyup="comparar();" class="input-field" placeholder="••••••••" required>
+=======
+                    <label for="password"><i class="fa-solid fa-lock"></i>Nueva Contraseña</label>
+                    <input type="password" id="password" name="password" onkeyup="comparar();" class="input-field" placeholder="••••••••" required>
+                </div>
+                <div class="input-group">
+                    <label for="password1"><i class="fa-solid fa-lock-open"></i>Confirmar Contraseña</label>
+                    <input type="password" id="password1" name="password1" onkeyup="comparar();" class="input-field" placeholder="••••••••" required>
+>>>>>>> otro-repo/main
                 </div>
 
                 <div id="passError" class="alert-box alert-error alert-hidden">
@@ -304,8 +331,13 @@ $conn->close();
     </script>
     <script>
         function comparar(){
+<<<<<<< HEAD
             const p1  = document.getElementById('contrasena');
             const p2  = document.getElementById('contrasena1');
+=======
+            const p1  = document.getElementById('password');
+            const p2  = document.getElementById('password1');
+>>>>>>> otro-repo/main
             if(!p1 || !p2) return;
             const err = document.getElementById('passError');
             const btn = document.getElementById('addBtn');

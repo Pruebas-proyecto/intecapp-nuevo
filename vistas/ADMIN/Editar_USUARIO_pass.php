@@ -15,12 +15,20 @@
 
             <p>
                 <label for="nombre" class="label-input">Contraseña Nueva</label><br>
+<<<<<<< HEAD
                 <input type="password" id="contraseña" name="contraseña" onkeyup="comparar();" required class="form-input">
+=======
+                <input type="password" id="password" name="password" onkeyup="comparar();" required class="form-input">
+>>>>>>> otro-repo/main
             </p>
             
             <p>
                 <label for="email" class="label-input">Repetir contraseña</label><br>
+<<<<<<< HEAD
                 <input type="password" id="contraseña1" name="contraseña1" onkeyup="comparar();" required class="form-input">
+=======
+                <input type="password" id="password1" name="password1" onkeyup="comparar();" required class="form-input">
+>>>>>>> otro-repo/main
             </p>
 
             <div id="error" class="alert alert-danger ocultar" role="alert">
@@ -32,10 +40,17 @@
                     <i class="fa fa-save"></i> Guardar
                 </button>
                 <button type="reset" class="btn-form btn-limpiar" name="reset" id="reset">
+<<<<<<< HEAD
                     <i class="fa fa-eraser"></i> Limpiar
                 </button>
                 <button type="button" class="btn-form btn-salir" name="exit" id="exit" onclick="window.location.href='../ADMIN/USUARIO.php'">
                     <i class="fa fa-sign-out"></i> Salir
+=======
+                    <i class="fa fa-eraser"></i> Limpiar formulario
+                </button>
+                <button type="button" class="btn-form btn-salir" name="exit" id="exit" onclick="window.location.href='../ADMIN/USUARIO.php'">
+                    <i class="fa fa-sign-out"></i> Volver
+>>>>>>> otro-repo/main
                 </button>
             </div>
         </form>

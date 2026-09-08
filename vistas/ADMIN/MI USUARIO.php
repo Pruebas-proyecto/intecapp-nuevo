@@ -63,8 +63,11 @@
 
             </div>
         </form>
+<<<<<<< HEAD
         <button id="btn-cambiar-tema" class="btn-tema">🌙 Oscuro</button>
 
+=======
+>>>>>>> otro-repo/main
         <footer>
             <p>&copy; INTECAP, QUICHÉ</p>
         </footer>

@@ -156,6 +156,7 @@
             }
             </script>
 
+<<<<<<< HEAD
             <style>
                 .user-status {
                     position: absolute;
@@ -165,10 +166,13 @@
                 }
 
             </style>
+=======
+>>>>>>> otro-repo/main
                 <div class="user-status">
                     <span class="user-role"><?php echo htmlspecialchars($user['cargo']); ?></span>
                     <span class="user-name"><?php echo htmlspecialchars($user['nombre']); ?></span>
                 </div>
+<<<<<<< HEAD
             <div class="dropdown user-menu">
                 <button class="dropdown-toggle" id="dd-user-menu" type="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -180,4 +184,6 @@
                     </a>
                 </div>
             </div>
+=======
+>>>>>>> otro-repo/main
         </header>
