@@ -1,3 +1,10 @@
+<?php
+// Evita que el navegador cachee esta página (bfcache/"volver con las
+// flechas"), igual que las demás pantallas del flujo de login.
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: Sat, 01 Jan 2000 00:00:00 GMT');
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

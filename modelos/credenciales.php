@@ -22,6 +22,6 @@ define('BREVO_API_KEY', '');
 define('MAIL_FROM', 'sp.space.deveolopers@gmail.com');
 define('MAIL_FROM_NAME', 'INTECAP Quiché - Sistema de Gestión');
 
-// JWT_SECRET nuevo, generado aleatoriamente (el anterior quedó expuesto
+// JWT_SECRET nuevo, generado aleatoriamente (el anterior quedó expuestoxsmtpsib-3710c71a82c6fc72989f7e7d3354422f96bc3bd34a7512465a431e0d662fdf16-Q7FUzGQUsaA6qucd
 // en el historial de GitHub y ya no debe usarse).
 define('JWT_SECRET', 'f3f2dc124b44cf676f4986a7aa73e8a265008e07288151b690dc8501ee078347');

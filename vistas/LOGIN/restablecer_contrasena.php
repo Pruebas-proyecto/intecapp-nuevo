@@ -4,27 +4,48 @@
  * Se llega aquí solo desde el enlace que recibe el usuario por correo.
  * Valida el token antes de mostrar el formulario de nueva contraseña.
  */
+
+// Evita que el navegador cachee esta página (bfcache/"volver con las
+// flechas"). Sin esto, el navegador podía mostrar una copia guardada de
+// esta pantalla —o de otra— en vez de pedirle al servidor una versión
+// nueva, dando la sensación de "entrar" a pantallas que no correspondían.
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: Sat, 01 Jan 2000 00:00:00 GMT');
+
 include '../../modelos/db.php';
+include '../../modelos/config.php';
+include '../../modelos/jwt_helper.php';
+
+/**
+ * NOTA: el flujo cambió de "token aleatorio guardado en la tabla
+ * recuperacion_password" a "JWT autovalidado" (ver solicitar_recuperacion.php
+ * y pass_olvidada.php). Esta pantalla se había quedado con la validación
+ * vieja contra esa tabla, que ya nunca se llena con el nuevo flujo — por
+ * eso siempre marcaba el enlace como inválido/usado. Ahora valida igual
+ * que pass_olvidada.php: firma + expiración del JWT, y que el fragmento
+ * de hash de contraseña (phv) siga coincidiendo con la contraseña actual
+ * del usuario (así se detecta un enlace ya usado, sin necesitar tabla).
+ */
 
 $token = $_GET['token'] ?? '';
 $tokenValido = false;
 
 if ($token !== '') {
+    $payload = verificarJWT($token, JWT_SECRET);
 
+    if ($payload !== null && isset($payload['uid'], $payload['phv'])) {
+        $idUsuario = (int) $payload['uid'];
+        $stmt = $conn->prepare("SELECT password FROM usuario WHERE id = ?");
+        $stmt->bind_param("i", $idUsuario);
+        $stmt->execute();
+        $fila = $stmt->get_result()->fetch_assoc();
+        $stmt->close();
 
-    $stmt = $conn->prepare("SELECT expira, usado FROM recuperacion_password WHERE token = ?");
-    $stmt->bind_param("s", $token);
-    $stmt->execute();
-    $resultado = $stmt->get_result();
-
-    if ($resultado->num_rows === 1) {
-        $fila = $resultado->fetch_assoc();
-        if ((int) $fila['usado'] === 0 && strtotime($fila['expira']) >= time()) {
+        if ($fila && substr($fila['password'], 0, 12) === $payload['phv']) {
             $tokenValido = true;
         }
     }
-    $stmt->close();
-
 }
 $conn->close();
 ?>
@@ -241,7 +262,6 @@ $conn->close();
                 <div class="input-group">
                     <label for="password1"><i class="fa-solid fa-lock-open"></i>Confirmar Contraseña</label>
                     <input type="password" id="password1" name="password1" onkeyup="comparar();" class="input-field" placeholder="••••••••" required>
-                    otro-repo/main
                 </div>
 
                 <div id="passError" class="alert-box alert-error alert-hidden">
@@ -308,7 +328,6 @@ $conn->close();
 
             const p1  = document.getElementById('password');
             const p2  = document.getElementById('password1');
->>>>>>> otro-repo/main
             if(!p1 || !p2) return;
             const err = document.getElementById('passError');
             const btn = document.getElementById('addBtn');
