@@ -1,8 +1,5 @@
 <?php
-<<<<<<< HEAD
-//session_start();
-include('db.php');
-=======
+
 include('db.php');
 if (session_status() === PHP_SESSION_NONE) session_start();
 include($_SERVER['DOCUMENT_ROOT'] . '/intecapp/controladores/session.php');
@@ -16,18 +13,14 @@ $checkCol = $conn->query("SHOW COLUMNS FROM talleres LIKE 'id_instructor'");
 if ($checkCol && $checkCol->num_rows === 0) {
    $conn->query("ALTER TABLE talleres ADD COLUMN id_instructor INT NULL AFTER anio");
 }
->>>>>>> otro-repo/main
+
 
 $id = $_POST["id"];
 $anio = $_POST["anio"];
 $nombre_taller = $_POST['nombre_taller'];
 $participantes = $_POST['participantes'];
 $condicion = $_POST['condicion'];
-<<<<<<< HEAD
 
-mysqli_query($conn,"UPDATE talleres SET anio = '$anio', nombre_taller = '$nombre_taller', participantes = '$participantes', condicion = '$condicion' WHERE id = '$id' ")or die(mysqli_error($con));
-
-=======
 $id_instructor = isset($_POST['id_instructor']) ? (int) $_POST['id_instructor'] : 0;
 
 if ($user['cargo'] === 'Instructor') {
@@ -50,7 +43,7 @@ if (!$stmt->execute()) {
 }
 
 $stmt->close();
->>>>>>> otro-repo/main
+
 echo "<script type='text/javascript'>alert('Registro actualizado correctamente.');</script>";
 echo "<script>document.location='../vistas/ADMIN/TALLERES.php'</script>";
 ?>

@@ -5,19 +5,13 @@
 include($_SERVER['DOCUMENT_ROOT'] . '/intecapp/modelos/cambiar_estado_evento.php');
 ?>
 
-<<<<<<< HEAD
-<h1>Eventos</h1>
 
-<div class="container-fluid">
-    <!-- Botón de hipervínculo alineado a la derecha -->
-    <div class="mb-3 text-right">
-=======
 <h1 class="admin-pilot-title">Eventos</h1>
 
 <div class="container-fluid admin-pilot-content">
     <!-- Botón de hipervínculo alineado a la derecha -->
     <div class="mb-3 text-right admin-pilot-actions">
->>>>>>> otro-repo/main
+
      <?php
      if ($user['cargo']=="Admin") {
      ?>
@@ -46,13 +40,10 @@ include($_SERVER['DOCUMENT_ROOT'] . '/intecapp/modelos/cambiar_estado_evento.php
         ?>
 
        </div>
-<<<<<<< HEAD
-   <div class="container-fluid table-responsive-lg">
-       <table id="table-edit" class="table table-bordered table-hover">
-=======
+
       <div class="container-fluid table-responsive admin-pilot-table-wrap">
         <table id="table-edit" class="table table-bordered table-hover rounded overflow-hidden admin-pilot-table">
->>>>>>> otro-repo/main
+
            <thead>
                <tr>
                    <th>Año</th>
@@ -77,11 +68,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/intecapp/modelos/cambiar_estado_evento.php
        </table>
    </div>
    <!-- Sección donde se coloca el gráfico -->
-<<<<<<< HEAD
-<div class="chart-container">
-=======
+
 <div class="chart-container admin-pilot-chart">
->>>>>>> otro-repo/main
+
 <canvas id="barChart"></canvas>
 </div>
    <div class="container-fluid">

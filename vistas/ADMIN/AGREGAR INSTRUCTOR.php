@@ -42,13 +42,10 @@
                 </p>
 
                 <p class="form-group">
-<<<<<<< HEAD
-                    <label for="contraseña">Contraseña</label><br>
-                    <input type="password" id="contraseña" name="contraseña" required>
-=======
+
                     <label for="password">Contraseña</label><br>
                     <input type="password" id="password" name="password" required>
->>>>>>> otro-repo/main
+
                 </p>
 
                 <p class="form-group">
@@ -66,19 +63,13 @@
                         <i class="fa fa-save"></i> Guardar
                     </button>
                     <button type="reset" class="btn btn-limpiar" name="reset" id="reset">
-<<<<<<< HEAD
-                        <i class="fa fa-eraser"></i> Limpiar
-                    </button>
-                    <button type="button" class="btn btn-salir" name="exit" id="exit"
-                        onclick="window.location.href='../ADMIN/INSTRUCTORES.php'">
-                        <i class="fa fa-sign-out"></i> <i class="fa fa-arrow-right"></i> Salir
-=======
+
                         <i class="fa fa-eraser"></i> Limpiar formulario
                     </button>
                     <button type="button" class="btn btn-salir" name="exit" id="exit"
                         onclick="window.location.href='../ADMIN/INSTRUCTORES.php'">
                         <i class="fa fa-sign-out"></i> Volver
->>>>>>> otro-repo/main
+
                     </button>
                 </p>
                 <br><br>

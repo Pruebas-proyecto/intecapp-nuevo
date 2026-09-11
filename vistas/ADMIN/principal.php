@@ -3,11 +3,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-<<<<<<< HEAD
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-=======
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
->>>>>>> otro-repo/main
+
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>INTECAP</title>
 
@@ -33,11 +31,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../wwwroot/css/principal.css">
-<<<<<<< HEAD
-=======
+
     <link rel="stylesheet" href="../../wwwroot/css/responsive.css">
     <link rel="stylesheet" href="../../wwwroot/css/admin-pilot.css">
->>>>>>> otro-repo/main
+
 
     <!--Script para manejo de tema claro/oscuro -->
     <script src="js/tema.js"></script>
@@ -78,11 +75,9 @@
     <?php if ($user['cargo'] == "Admin" || $user['cargo'] == "Instructor") { ?>
         <div class="icon-text">
             <a href="../ADMIN/ASISTENCIA.php">
-<<<<<<< HEAD
-                <i class="fas fa-file-alt"></i>
-=======
+
                 <i class="fas fa-check-circle"></i>
->>>>>>> otro-repo/main
+
             </a> 
             <h3>Asistencia</h3>
         </div>
@@ -102,13 +97,11 @@
                 <div class="sortable">
                     <section class="box-typical task-card task">
                         <div class="task-card-photo">
-<<<<<<< HEAD
-                            <img src="img/talleres.jpg" alt="Task Image">
-=======
+
                             <a href="../ADMIN/TALLERES.php">
                                 <img src="img/talleres.jpg" alt="Talleres">
                             </a>
->>>>>>> otro-repo/main
+
                         </div>
                         <div class="task-card-in">
                             <div class="task-card-title">
@@ -125,13 +118,11 @@
                 <div class="sortable">
                     <section class="box-typical task-card task">
                         <div class="task-card-photo">
-<<<<<<< HEAD
-                            <img src="img/eventos.jpg" alt="Task Image">
-=======
+
                             <a href="../ADMIN/EVENTOS.php">
                                 <img src="img/eventos.jpg" alt="Eventos">
                             </a>
->>>>>>> otro-repo/main
+
                         </div>
                         <div class="task-card-in">
                             <div class="task-card-title">
@@ -147,13 +138,11 @@
                 <div class="sortable">
                     <section class="box-typical task-card task">
                         <div class="task-card-photo">
-<<<<<<< HEAD
-                            <img src="img/instructores.jpg" alt="Task Image">
-=======
+
                             <a href="../ADMIN/INSTRUCTORES.php">
                                 <img src="img/instructores.jpg" alt="Instructores">
                             </a>
->>>>>>> otro-repo/main
+
                         </div>
                         <div class="task-card-in">
                             <div class="task-card-title">
@@ -170,13 +159,11 @@
                 <div class="sortable">
                     <section class="box-typical task-card task">
                         <div class="task-card-photo">
-<<<<<<< HEAD
-                            <img src="img/mantenimiento.jpg" alt="Task Image">
-=======
+
                             <a href="../ADMIN/MANTENIMIENTO.php">
                                 <img src="img/mantenimiento.jpg" alt="Mantenimiento">
                             </a>
->>>>>>> otro-repo/main
+                            
                         </div>
                         <div class="task-card-in">
                             <div class="task-card-title">
@@ -193,13 +180,11 @@
                 <div class="sortable">
                     <section class="box-typical task-card task">
                         <div class="task-card-photo">
-<<<<<<< HEAD
-                            <img src="img/instructores.jpg" alt="Task Image">
-=======
+
                             <a href="../ADMIN/USUARIO.php">
                                 <img src="img/instructores.jpg" alt="Usuarios">
                             </a>
->>>>>>> otro-repo/main
+
                         </div>
                         <div class="task-card-in">
                             <div class="task-card-title">
@@ -211,10 +196,9 @@
             </div>
             <?php } ?>
         </div>
-<<<<<<< HEAD
-=======
+
         <button id="btn-cambiar-tema" class="btn-tema" type="button">🌙 Oscuro</button>
->>>>>>> otro-repo/main
+
     </div>
     <footer>
         <p>&copy; INTECAP, QUICHÉ</p>

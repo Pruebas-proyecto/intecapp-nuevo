@@ -1,11 +1,7 @@
 <?php
 include('../../modelos/db.php');
 
-<<<<<<< HEAD
-$sql = "SELECT * FROM talleres";
-$query = $conn->query($sql);
-while($row = $query->fetch_assoc()){
-=======
+
 $esInstructor = isset($user['cargo']) && trim($user['cargo']) === 'Instructor';
 $idUsuario = isset($user['id']) ? (int) $user['id'] : 0;
 $sql = $esInstructor
@@ -19,14 +15,12 @@ if ($query && $query->num_rows === 0 && $esInstructor) {
     echo '<option value="" disabled>No tiene talleres a cargo</option>';
 }
 while ($row = $query->fetch_assoc()){
->>>>>>> otro-repo/main
+
 
 ?>
     <option value="<?php echo $row['id'];?>"><?php echo $row['nombre_taller'];?></option>
 <?php 
     }
 ?>
-<<<<<<< HEAD
 
-=======
->>>>>>> otro-repo/main
+

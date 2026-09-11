@@ -40,13 +40,10 @@
         <?php } ?>
     </div>
 
-<<<<<<< HEAD
-    <div class="container-fluid table-responsive-lg">
-         <table id="table-edit" class="table table-bordered table-hover">
-=======
+
     <div class="container-fluid table-responsive-lg admin-pilot-table-wrap">
          <table id="table-edit" class="table table-bordered table-hover rounded overflow-hidden admin-pilot-table">
->>>>>>> otro-repo/main
+
             <thead>
                 <tr>
                     <th>Foto</th>
@@ -64,11 +61,9 @@
             </tbody>
         </table>
     </div>
-<<<<<<< HEAD
 
-=======
     <br><br>
->>>>>>> otro-repo/main
+
 </div>
 
 <footer>
@@ -97,11 +92,9 @@
 
         var filas = document.querySelectorAll('#table-edit tbody tr');
         filas.forEach(function(fila) {
-<<<<<<< HEAD
-            var celdaCargo = fila.cells[4]; // 0:Foto 1:Nombre 2:Teléfono 3:Correo 4:Cargo
-=======
+
             var celdaCargo = fila.cells[3]; // índice 3 porque ahora Foto es cells[0]
->>>>>>> otro-repo/main
+
             if (!celdaCargo) return;
             var textoCargo = celdaCargo.textContent.trim();
             fila.style.display = (cargo === 'todos' || textoCargo === cargo) ? '' : 'none';

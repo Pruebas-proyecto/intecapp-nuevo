@@ -53,24 +53,8 @@ html, body {
     color: var(--color-header-texto) !important;
 }
 
-<<<<<<< HEAD
-/* Menú lateral - PROTEGER ICONOS */
-.side-menu, .side-menu-compact, .nav-drawer {
-    background-color: var(--color-header) !important;
-    border-right: 1px solid var(--color-borde) !important;
-}
 
-.side-menu a, .side-menu-compact a, .nav-drawer a, .side-menu-list a, .side-menu-list li span.lbl {
-    color: var(--color-header-texto) !important;
-}
 
-.side-menu a:hover, .side-menu-compact a:hover, .nav-drawer a:hover, .side-menu-list a:hover {
-    background-color: var(--color-fondo-claro) !important;
-    color: var(--color-primario) !important;
-}
-
-=======
->>>>>>> otro-repo/main
 /* Menús desplegables */
 .dropdown-menu, .user-menu .dropdown-menu {
     background-color: var(--color-panel) !important;
@@ -96,17 +80,8 @@ html, body {
     background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
-<<<<<<< HEAD
-/* PROTEGER ICONOS DEL MENÚ - MANTENER AZUL ORIGINAL */
-.side-menu i, .side-menu-compact i, .nav-drawer i, .side-menu-list i,
-.side-menu [class*="icon"], .side-menu-compact [class*="icon"],
-.nav-drawer [class*="icon"], .icon-menu, .menu-icon,
-.side-menu-item-icon, .side-menu-item i, .side-menu-compact-item i {
-    color: #007bff !important;
-}
 
-=======
->>>>>>> otro-repo/main
+
 /* Paneles y contenedores */
 .main-container {
     background-color: var(--color-fondo) !important;
@@ -142,96 +117,8 @@ body.dark-mode .input-group-text i {
     color: #ffffff !important; 
 }
 
-<<<<<<< HEAD
-/* 1. Obligamos a los campos a usar el color dinámico del portal */
-.form-control, 
-.form-select {
-    color: var(--color-texto) !important;
-}
 
-/* 2. Seguro de vida para el Modo Oscuro */
-/* Ajusta el fondo y borde de las cajas de texto cuando es de noche */
-body.dark-mode .form-control, 
-body.dark-mode .form-select,
-[data-theme="dark"] .form-control,
-[data-theme="dark"] .form-select {
-    background-color: #2b2b2b !important; /* Fondo gris oscuro */
-    color: #ffffff !important;            /* Texto totalmente blanco */
-    border-color: #444444 !important;     /* Borde oscuro para que no deslumbre */
-}
 
-/* Formularios e inputs */
-input[type="text"], input[type="password"], input[type="email"], 
-input[type="number"], input[type="date"], input[type="time"],
-textarea, select {
-    background-color: var(--color-input-bg) !important;
-    color: var(--color-texto) !important;
-    border: 1px solid var(--color-borde) !important;
-}
-
-input:focus, textarea:focus, select:focus {
-    background-color: var(--color-input-bg) !important;
-    color: var(--color-texto) !important;
-    border-color: var(--color-primario) !important;
-    outline: none;
-    box-shadow: 0 0 5px rgba(79, 163, 255, 0.3) !important;
-}
-
-input::placeholder, textarea::placeholder, select {
-    color: var(--color-texto) !important;
-    opacity: 0.7;
-}
-
-/* Botones */
-button, .btn {
-    border-color: var(--color-borde) !important;
-}
-
-.btn-primary, button[style*="background:#007bff"] {
-    background-color: var(--color-primario) !important;
-    border-color: var(--color-primario) !important;
-    color: white !important;
-}
-
-.btn-primary:hover, button[style*="background:#007bff"]:hover {
-    opacity: 0.9;
-}
-
-/* Tablas */
-table {
-    background-color: var(--color-panel) !important;
-    color: var(--color-texto) !important;
-}
-
-table th {
-    background-color: var(--color-primario) !important;
-    color: white !important;
-    border-color: var(--color-borde) !important;
-}
-
-table td {
-    border-color: var(--color-borde) !important;
-    color: var(--color-texto) !important;
-}
-
-table tbody tr:hover {
-    background-color: var(--color-fondo-claro) !important;
-}
-
-/* DataTables */
-.dataTables_wrapper .dataTables_paginate .paginate_button {
-    background-color: var(--color-panel) !important;
-    color: var(--color-texto) !important;
-}
-
-.dataTables_wrapper .dataTables_filter input {
-    background-color: var(--color-input-bg) !important;
-    color: var(--color-texto) !important;
-    border: 1px solid var(--color-borde) !important;
-}
-
-=======
->>>>>>> otro-repo/main
 /* Footer y NavBar Extras */
 footer, .navbar {
     background-color: var(--color-header) !important;

@@ -10,7 +10,7 @@
  *  dentro del propio token: si ya cambiaste la contraseña con ese
  *  enlace (o de cualquier otra forma), el token deja de ser válido
  *  aunque todavía no haya expirado.
-<<<<<<< HEAD
+
  *
  * CAMBIO DE SEGURIDAD:
  *  Al confirmar el cambio de contraseña se destruye cualquier sesión
@@ -29,11 +29,10 @@ header('Expires: Sat, 01 Jan 2000 00:00:00 GMT');
 
 include('db.php');
 include('config.php');
-=======
- */
+
 
 include('db.php');
->>>>>>> otro-repo/main
+
 include('password_helper.php');
 include('jwt_helper.php');
 
@@ -44,23 +43,20 @@ $volverError = function ($mensaje) {
 };
 
 $token       = $_POST['token']        ?? '';
-<<<<<<< HEAD
-$contraseña  = $_POST['contraseña']   ?? '';
-$contraseña1 = $_POST['contraseña1']  ?? '';
-=======
+
+
 $password  = $_POST['password']   ?? '';
 $password1 = $_POST['password1']  ?? '';
->>>>>>> otro-repo/main
+
 
 if ($token === '') {
     $volverError('Enlace inválido.');
 }
 
-<<<<<<< HEAD
-if ($contraseña === '' || $contraseña !== $contraseña1) {
-=======
+
+
 if ($password === '' || $password !== $password1) {
->>>>>>> otro-repo/main
+
     echo "<script type='text/javascript'>alert('Las contraseñas no coinciden.');</script>";
     echo "<script>document.location='../vistas/LOGIN/restablecer_contrasena.php?token=" . urlencode($token) . "'</script>";
     exit;
@@ -76,39 +72,31 @@ $idUsuario = (int) $payload['uid'];
 
 // Confirmar que la contraseña no haya cambiado desde que se generó el link
 // (esto reemplaza la columna "usado" de la tabla vieja).
-<<<<<<< HEAD
-$stmt = $conn->prepare("SELECT contraseña FROM usuario WHERE id = ?");
-=======
+
 $stmt = $conn->prepare("SELECT password FROM usuario WHERE id = ?");
->>>>>>> otro-repo/main
+
 $stmt->bind_param("i", $idUsuario);
 $stmt->execute();
 $fila = $stmt->get_result()->fetch_assoc();
 $stmt->close();
 
-<<<<<<< HEAD
-if (!$fila || substr($fila['contraseña'], 0, 12) !== $payload['phv']) {
-=======
+
 if (!$fila || substr($fila['password'], 0, 12) !== $payload['phv']) {
->>>>>>> otro-repo/main
+
     $volverError('Este enlace ya fue utilizado o ya no es válido. Solicita uno nuevo.');
 }
 
 // Encriptar la nueva contraseña con hash seguro (bcrypt)
-<<<<<<< HEAD
-$pass = hashPasswordSeguro($contraseña);
 
-$stmtUpdate = $conn->prepare("UPDATE usuario SET contraseña = ? WHERE id = ?");
-=======
 $pass = hashPasswordSeguro($password);
 
 $stmtUpdate = $conn->prepare("UPDATE usuario SET password = ? WHERE id = ?");
->>>>>>> otro-repo/main
+
 $stmtUpdate->bind_param("si", $pass, $idUsuario);
 $stmtUpdate->execute();
 $stmtUpdate->close();
 
-<<<<<<< HEAD
+
 // Por seguridad: si por cualquier motivo había una sesión activa en este
 // navegador, la matamos aquí mismo. Así, aunque alguien intente "seguir
 // usando" la sesión vieja después de cambiar la contraseña, no podrá:
@@ -139,6 +127,6 @@ session_destroy();
 // con el archivo que subas al servidor.
 echo "<script>document.location='../vistas/LOGIN/cambio_password_exitoso.html'</script>";
 exit;
-=======
+
 echo "<script>document.location='../vistas/LOGIN/cambio de contraseña.html'</script>";
->>>>>>> otro-repo/main
+

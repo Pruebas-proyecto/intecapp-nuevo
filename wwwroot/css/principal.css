@@ -39,12 +39,6 @@
 
         .user-status {
             position: absolute;
-<<<<<<< HEAD
-            right: 100px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-=======
                     right: 86px;
             top: 50%;
                     display: inline-flex;
@@ -90,7 +84,7 @@
                 html[data-tema="oscuro"] .user-status .user-name {
                     color: #ffffff;
                 }
->>>>>>> otro-repo/main
+
 
         h4.portal-servicios {
             text-align: center;
@@ -232,8 +226,7 @@ footer {
     text-align: center;
     box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
 }
-<<<<<<< HEAD
-=======
+
 
 .btn-tema {
     position: fixed;
@@ -261,4 +254,4 @@ footer {
         padding: 10px 14px;
     }
 }
->>>>>>> otro-repo/main
+

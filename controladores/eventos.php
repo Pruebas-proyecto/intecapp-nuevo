@@ -1,15 +1,18 @@
 <?php
 	include '../../modelos/db.php';
+
+    $user = $_SESSION['user'] ?? ['cargo' => ''];
     
     function redireccionarrrr() {
-        if ($user['cargo']=="Admin") {
+        global $user;
+        if (($user['cargo'] ?? '') == "Admin") {
 
         }else{
             echo "<script>document.location='../ADMIN/principal.php'</script>";
         }
     }
 
-    $cargo = $user['cargo'];
+    $cargo = $user['cargo'] ?? '';
     $cargo = json_encode($cargo);
 
     $nombre_evento = array();

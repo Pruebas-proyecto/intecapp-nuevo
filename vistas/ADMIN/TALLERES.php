@@ -2,19 +2,7 @@
 <?php include 'nav_bar.php'; ?>
 <?php include 'menu.php'; ?>
 
-<<<<<<< HEAD
-<h1>Talleres</h1>
-   
-   <div class="container-fluid">
-       <!-- Botón de hipervínculo alineado a la derecha -->
-       <div class="mb-3 text-right">
-        <?php
-        if (in_array($user['cargo'], ["Admin" , "Instructor"])) {
-            ?>
-            <a href="../ADMIN/AGREGAR TALLER.php" class="btn btn-primary" style="display: inline-block; width: 120px; padding: 10px 0; background-color: #007bff; color: white; 
-                        font-size: 13px; font-family: 'Arial', serif; text-decoration: none; border-radius: 4px; text-align: center;">
-                <i class="fa fa-calendar-plus"></i> Agregar
-=======
+
 <h1 class="admin-pilot-title">Talleres</h1>
 
     <div class="container-fluid admin-pilot-content">
@@ -38,40 +26,23 @@
             <a href="../ADMIN/AGREGAR TALLER.php" class="btn btn-primary" style="display: inline-block; width: 120px; padding: 10px 0; background-color: #007bff; color: white; 
                 font-size: 13px; font-family: 'Arial', serif; text-decoration: none; border-radius: 4px; text-align: center;">
                     <i class="fa fa-calendar-plus"></i> Agregar
->>>>>>> otro-repo/main
+
             </a>
         <?php
         }
         ?>
-<<<<<<< HEAD
-        <?php
-        if ($user['cargo']=="Admin") {
-        ?>
-        <button type="button" class="btn btn-primary" style="display: inline-block; width: 120px; padding: 10px 0; background-color: #007bff; color: white; 
-            font-size: 13px; font-family: 'Arial', serif; text-decoration: none; border-radius: 4px; text-align: center;" onclick="window.location.href='pdf/talleres_pdf.php'">
-            <i class="fas fa-print"></i> Reporte
-        </button>
-        <?php
-        }else  {
-            
-        }
-        ?>
-       </div>
-   <div class="container-fluid table-responsive-lg">
-       <table id="table-edit" class="table table-bordered table-hover">
-=======
+
        </div>
    <div class="container-fluid table-responsive-lg admin-pilot-table-wrap">
         <table id="table-edit" class="table table-bordered table-hover rounded overflow-hidden admin-pilot-table">
->>>>>>> otro-repo/main
+
            <thead>
                <tr>
                    <th>Año</th>
                    <th>Nombre del Taller</th>
-<<<<<<< HEAD
-=======
+
                    <th>Instructor a Cargo</th>
->>>>>>> otro-repo/main
+
                    <th>Participantes</th>
                    <th>Condición</th>
                    <th>Estado</th>
@@ -87,11 +58,9 @@
 
    </div>
 <!-- Sección donde se coloca el gráfico -->
-<<<<<<< HEAD
-<div class="chart-container">
-=======
+
 <div class="chart-container admin-pilot-chart">
->>>>>>> otro-repo/main
+
     <canvas id="barChart"></canvas>
 </div>
   

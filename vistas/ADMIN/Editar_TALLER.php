@@ -24,8 +24,7 @@
         </div>
 
         <div class="form-group">
-<<<<<<< HEAD
-=======
+
             <label for="id_instructor">Instructor a Cargo</label>
             <select name="id_instructor" id="id_instructor" required>
                 <option value="">Seleccione</option>
@@ -44,7 +43,7 @@
         </div>
 
         <div class="form-group">
->>>>>>> otro-repo/main
+
             <label for="participantes">Participantes</label>
             <input type="text" id="participantes" name="participantes" value="<?php echo htmlspecialchars($row['participantes']); ?>" required>
         </div>
@@ -61,11 +60,9 @@
 
             <button type="button" class="btn-salir" name="exit" id="exit"
                 onclick="window.location.href='../ADMIN/TALLERES.php'">
-<<<<<<< HEAD
-                <i class="fa fa-sign-out"></i> <i class="fa fa-arrow-right"></i> Salir
-=======
+
                 <i class="fa fa-sign-out"></i> Volver
->>>>>>> otro-repo/main
+
             </button>
         </div>
 

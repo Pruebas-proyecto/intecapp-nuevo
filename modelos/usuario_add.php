@@ -8,11 +8,9 @@ $telefono              = $_POST['telefono']             ?? '';
 $cargo                = $_POST['cargo']                ?? '';
 $nom_usuario          = $_POST['nom_usuario']          ?? '';
 $correo               = trim($_POST['correo']          ?? '');
-<<<<<<< HEAD
-$contraseña           = $_POST['contraseña']           ?? '';
-=======
+
 $password             = $_POST['password']             ?? '';
->>>>>>> otro-repo/main
+
 $estado               = $_POST['estado']                ?? '';
 $area_especializacion = $_POST['area_especializacion'] ?? '';
 $foto_base64          = $_POST['foto_base64']          ?? '';
@@ -35,11 +33,9 @@ if ($stmtCheck->num_rows > 0) {
 $stmtCheck->close();
 // ────────────────────────────────────────────────────────────────────
 
-<<<<<<< HEAD
-$pass = hashPasswordSeguro($contraseña);
-=======
+
 $pass = hashPasswordSeguro($password);
->>>>>>> otro-repo/main
+
 
 if ($cargo !== 'Instructor') {
     $area_especializacion = '';
@@ -59,19 +55,13 @@ if (!empty($foto_base64) && strpos($foto_base64, 'data:image/') === 0) {
 }
 
 if ($foto_param !== null) {
-<<<<<<< HEAD
-    $stmt = $conn->prepare("INSERT INTO usuario (nombre, telefono, cargo, nom_usuario, correo, contraseña, estado, area_especializacion, foto)
-                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssssss", $nombre, $telefono, $cargo, $nom_usuario, $correo, $pass, $estado, $area_especializacion, $foto_param);
-} else {
-    $stmt = $conn->prepare("INSERT INTO usuario (nombre, telefono, cargo, nom_usuario, correo, contraseña, estado, area_especializacion)
-=======
+
     $stmt = $conn->prepare("INSERT INTO usuario (nombre, telefono, cargo, nom_usuario, correo, password, estado, area_especializacion, foto)
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssssssss", $nombre, $telefono, $cargo, $nom_usuario, $correo, $pass, $estado, $area_especializacion, $foto_param);
 } else {
     $stmt = $conn->prepare("INSERT INTO usuario (nombre, telefono, cargo, nom_usuario, correo, password, estado, area_especializacion)
->>>>>>> otro-repo/main
+
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssssss", $nombre, $telefono, $cargo, $nom_usuario, $correo, $pass, $estado, $area_especializacion);
 }

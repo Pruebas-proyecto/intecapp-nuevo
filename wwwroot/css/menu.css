@@ -19,14 +19,7 @@
 .nav-drawer {
     position: fixed;
     top: 0;
-<<<<<<< HEAD
-    left: -280px;
-    width: 280px;
-    height: 100%;
-    background-color: #FFFFFF;
-    overflow-y: auto;
-    transition: left 0.3s ease-in-out;
-=======
+
     left: -100%;
     /*width: 260px;*/
     width: min(280px, 88vw);
@@ -34,7 +27,7 @@
     background: linear-gradient(180deg, #0A4197 0%, #308FE2 100%);
     overflow-y: auto;
     transition: left 0.25s ease-in-out;
->>>>>>> otro-repo/main
+
     z-index: 1000;
 }
 
@@ -42,12 +35,7 @@
     left: 0;
 }
 
-<<<<<<< HEAD
-.nav-drawer .side-menu-list {
-    margin: 0;
-    padding: 20px 0;
-    list-style: none;
-=======
+
 /* Menú lateral compacto para escritorio */
 @media (min-width: 1057px) {
     .side-menu.side-menu-compact {
@@ -180,7 +168,7 @@
 .side-menu-list a .lbl,
 .side-menu-list a i {
     color: #ffffff !important;
->>>>>>> otro-repo/main
+
 }
 
 .nav-drawer .side-menu-list li {
@@ -229,24 +217,20 @@
     padding: 10px 12px;
     font-size: 20px;
     cursor: pointer;
-<<<<<<< HEAD
-    z-index: 998;
-    border-radius: 4px;
-=======
+radius: 4px;
+
     z-index: 1001;
     border-radius: 6px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     min-width: 44px;
     min-height: 44px;
->>>>>>> otro-repo/main
+
 }
 
 /* Responsividad: Mostrar botón de menú solo en pantallas pequeñas */
 @media (max-width: 768px) {
     .menu-toggle-btn {
-<<<<<<< HEAD
-        display: block;
-=======
+
         display: block !important;
         position: fixed !important;
         top: 34px !important;
@@ -281,6 +265,6 @@ body.menu-open {
     .nav-drawer,
     .menu-toggle-btn {
         display: none !important;
->>>>>>> otro-repo/main
+
     }
 }

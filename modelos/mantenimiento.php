@@ -2,12 +2,7 @@
 //session_start();
 include('db.php');
 
-<<<<<<< HEAD
-if(isset($_REQUEST['id'])){
-    $id =$_REQUEST['id'];
-} else {
-    $id =$_POST['id'];
-=======
+
 if (session_status() === PHP_SESSION_NONE) session_start();
 include($_SERVER['DOCUMENT_ROOT'] . '/intecapp/controladores/session.php');
 
@@ -15,15 +10,14 @@ if(isset($_REQUEST['id'])){
     $id = (int) $_REQUEST['id'];
 } else {
     $id = (int) $_POST['id'];
->>>>>>> otro-repo/main
+
 }
 
 $sql = "SELECT * FROM mantenimiento WHERE id = $id";
 $query = $conn->query($sql);
 $row = $query->fetch_assoc();
 
-<<<<<<< HEAD
-=======
+
 if (!$row) {
     http_response_code(404);
     echo 'No existe el mantenimiento';
@@ -37,5 +31,5 @@ if ($user['cargo'] !== 'Admin' && (int)$row['id_encargado'] !== (int)$id_sesion 
     exit;
 }
 
->>>>>>> otro-repo/main
+
 ?>

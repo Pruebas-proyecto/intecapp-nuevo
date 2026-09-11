@@ -1,11 +1,10 @@
 <?php
 //session_start();
 include('db.php');
-<<<<<<< HEAD
-=======
+
 if (session_status() === PHP_SESSION_NONE) session_start();
 include($_SERVER['DOCUMENT_ROOT'] . '/intecapp/controladores/session.php');
->>>>>>> otro-repo/main
+
 
 $anio_evento = isset($_POST["anio_evento"]) ? $_POST["anio_evento"] : '';
 $id_talleres = isset($_POST['id_talleres']) ? $_POST['id_talleres'] : '';
@@ -21,8 +20,7 @@ $detalle_modalidad = isset($_POST['detalle_modalidad']) ? trim($_POST['detalle_m
 $Modulo = isset($_POST['Modulo']) ? trim($_POST['Modulo']) : '';
 $Url = isset($_POST['Url']) ? trim($_POST['Url']) : '';
 
-<<<<<<< HEAD
-=======
+
 if (trim($user['cargo']) === 'Instructor') {
     $id_talleres = (int) $id_talleres;
     $id_instructor = (int) $user['id'];
@@ -43,7 +41,7 @@ if (trim($user['cargo']) === 'Instructor') {
     $stmtTaller->close();
 }
 
->>>>>>> otro-repo/main
+
 if ($modalidad === 'Presencial') {
     $Modulo = $detalle_modalidad;
 } elseif ($modalidad === 'Virtual') {

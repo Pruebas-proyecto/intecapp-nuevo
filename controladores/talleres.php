@@ -4,17 +4,7 @@
     $talleres = array();
     $participantes = array();
 
-<<<<<<< HEAD
-    $sql = "SELECT * FROM talleres";
-    $query = $conn->query($sql);   
 
-    while($row = $query->fetch_assoc()){
-        array_push($talleres, $row['nombre_taller']);
-        array_push($participantes, $row['participantes']);
-    }
-
-    $talleres = json_encode($talleres);
-=======
     $sql = "SELECT t.*, COALESCE(
                 u.nombre,
                 (SELECT i.nom_instructor
@@ -49,7 +39,7 @@
     }
 
     $talleres = json_encode($talleres, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);
->>>>>>> otro-repo/main
+
     $participantes = json_encode($participantes);
 ?>
 
@@ -75,15 +65,13 @@
     window.onload = function() {
 
     // Gráfico de Barras (Bar Chart)
-<<<<<<< HEAD
-    var ctxBar = document.getElementById('barChart').getContext('2d');
-=======
+
     var canvasBar = document.getElementById('barChart');
     if (!canvasBar) {
         return;
     }
     var ctxBar = canvasBar.getContext('2d');
->>>>>>> otro-repo/main
+
     
     var barChart = new Chart(ctxBar, {
         type: 'bar',

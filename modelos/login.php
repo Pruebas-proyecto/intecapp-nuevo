@@ -5,11 +5,10 @@
 
 	if(isset($_POST['login'])){
 		$nom_usuario = trim($_POST['nom_usuario'] ?? '');
-<<<<<<< HEAD
-		$contraseña  = $_POST['contraseña'] ?? '';
-=======
+
+
 		$password = $_POST['password'] ?? '';
->>>>>>> otro-repo/main
+
 
 		// Consulta preparada: evita inyección SQL (antes se concatenaba
 		// $nom_usuario directo en el SQL, lo que permitía bypass tipo
@@ -29,11 +28,9 @@
 		}
 		else{
 			$row = $query->fetch_assoc();
-<<<<<<< HEAD
-			if(verificarPasswordSeguro($contraseña, $row['contraseña'], $conn, (int)$row['id'])){
-=======
+
 			if(verificarPasswordSeguro($password, $row['password'], $conn, (int)$row['id'])){
->>>>>>> otro-repo/main
+
 				// Login correcto: regenerar el ID de sesión evita
 				// ataques de "fijación de sesión" (session fixation).
 				session_regenerate_id(true);

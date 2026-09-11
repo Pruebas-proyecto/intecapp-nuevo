@@ -15,7 +15,7 @@ define('SMTP_USER', 'PEGA-AQUI-SI-ALGUN-DIA-USAS-SMTP'); // no se usa con EMAIL_
 define('SMTP_PASS', 'PEGA-AQUI-SI-ALGUN-DIA-USAS-SMTP'); // no se usa con EMAIL_METHOD=api
 
 // La clave API que generaste en la pestaña "API Keys" (la de "intecapp-api")
-define('BREVO_API_KEY', '');
+define('BREVO_API_KEY', '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');
 
 // Debe ser EXACTAMENTE el correo que aparece como "Verificado" en
 // Remitentes, dominio, IP > Remitentes (en tu caso: sicmendezr@gmail.com)

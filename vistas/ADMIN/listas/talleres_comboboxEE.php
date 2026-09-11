@@ -1,10 +1,7 @@
 <?php
 include('../../modelos/db.php');
 
-<<<<<<< HEAD
-$sqlT = "SELECT * FROM talleres";
-$queryT = $conn->query($sqlT);
-=======
+
 $esInstructor = isset($user['cargo']) && trim($user['cargo']) === 'Instructor';
 $idUsuario = isset($user['id']) ? (int) $user['id'] : 0;
 $sqlT = $esInstructor
@@ -17,7 +14,7 @@ if (!$queryT) {
 if ($queryT && $queryT->num_rows === 0 && $esInstructor) {
     echo '<option value="" disabled>No tiene talleres a cargo</option>';
 }
->>>>>>> otro-repo/main
+
 while($rowT = $queryT->fetch_assoc()){
 
 ?>

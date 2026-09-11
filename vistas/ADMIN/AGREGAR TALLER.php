@@ -22,8 +22,7 @@
                 </p>
 
                 <p class="form-group">
-<<<<<<< HEAD
-=======
+
                     <label for="nom_instructor">Instructor</label><br>
                     <select name="nom_instructor" id="nom_instructor" required>
                         <option value="">Seleccione</option>
@@ -32,7 +31,7 @@
                 </p>    
 
                 <p class="form-group">
->>>>>>> otro-repo/main
+
                     <label for="participantes">Participantes</label><br>
                     <input type="text" id="participantes" name="participantes" required>
                 </p>
@@ -48,19 +47,13 @@
                         <i class="fa fa-save"></i> Guardar
                     </button>
                     <button type="reset" class="btn btn-limpiar" name="reset" id="reset">
-<<<<<<< HEAD
-                        <i class="fa fa-eraser"></i> Limpiar
-                    </button>
-                    <button type="button" class="btn btn-salir" name="exit" id="exit"
-                        onclick="window.location.href='../ADMIN/TALLERES.php'">
-                        <i class="fa fa-sign-out"></i> <i class="fa fa-arrow-right"></i> Salir
-=======
+
                         <i class="fa fa-eraser"></i> Limpiar formulario
                     </button>
                     <button type="button" class="btn btn-salir" name="exit" id="exit"
                         onclick="window.location.href='../ADMIN/TALLERES.php'">
                         <i class="fa fa-sign-out"></i> Volver
->>>>>>> otro-repo/main
+
                     </button>
                 </p>
             </center>
