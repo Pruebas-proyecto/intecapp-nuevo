@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="/intecapp/wwwroot/css/Editar_INSTRUCTOR.css">
 <link rel="stylesheet" href="css/tema.css">
 
-<body class="editar-usuario-body">
+<div class="editar-usuario-body">
     <div class="usuario-container">
         <h3 class="usuario-titulo">Editar Usuario</h3>
         
@@ -30,6 +30,38 @@
                 <p>
                     <label for="nom_usuario">Usuario</label><br>
                     <input type="text" id="nom_usuario" name="nom_usuario" value="<?php echo $row['nom_usuario'];?>" required class="usuario-input">
+                </p>
+
+                <p>
+                    <label for="correo">Correo electrónico</label><br>
+                    <input type="email" id="correo" name="correo" value="<?php echo htmlspecialchars($row['correo'] ?? '');?>" placeholder="(opcional)" class="usuario-input">
+                </p>
+
+                <p>
+                    <label for="area_especializacion">Área de especialización</label><br>
+                    <select id="area_especializacion" name="area_especializacion" class="usuario-select">
+                        <option value="">Seleccione un área</option>
+                        <?php
+                        $areas = [
+                            'Soldadura Industrial',
+                            'Electricidad',
+                            'Gastronomía',
+                            'Confección',
+                            'Belleza y Estética',
+                            'Informática',
+                            'Mecánica Automotriz',
+                            'Otra',
+                        ];
+                        $areaActual = $row['area_especializacion'] ?? '';
+                        if ($areaActual !== '' && !in_array($areaActual, $areas, true)) {
+                            echo "<option value=\"" . htmlspecialchars($areaActual) . "\" selected>" . htmlspecialchars($areaActual) . "</option>";
+                        }
+                        foreach ($areas as $area) {
+                            $sel = ($areaActual === $area) ? 'selected' : '';
+                            echo "<option value=\"" . htmlspecialchars($area) . "\" $sel>" . htmlspecialchars($area) . "</option>";
+                        }
+                        ?>
+                    </select>
                 </p>
 
                 <p>
@@ -58,10 +90,10 @@
                 </div>
             </div>
         </form>
-        
-        <?php include 'footer.php'; ?>
     </div>
+</div>
+<br><br><br>
+<?php include 'footer.php'; ?>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>

@@ -93,7 +93,7 @@
         var filas = document.querySelectorAll('#table-edit tbody tr');
         filas.forEach(function(fila) {
 
-            var celdaCargo = fila.cells[3]; // índice 3 porque ahora Foto es cells[0]
+            var celdaCargo = fila.cells[4]; // 0 Foto, 1 Nombre, 2 Teléfono, 3 Correo, 4 Cargo
 
             if (!celdaCargo) return;
             var textoCargo = celdaCargo.textContent.trim();

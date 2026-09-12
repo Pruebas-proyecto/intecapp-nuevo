@@ -16,22 +16,29 @@ $area_especializacion = $_POST['area_especializacion'] ?? '';
 
 
 // ── Validación del correo ──────────────────────────────────────────
-if ($correo === '' || !filter_var($correo, FILTER_VALIDATE_EMAIL)) {
-    echo "<script>alert('Debes ingresar un correo electrónico válido.'); history.back();</script>";
-    exit;
-}
+// El correo es obligatorio al REGISTRAR (usuario_add.php), pero aquí,
+// al editar, es opcional.
+$backUrl = ($instructor == '1')
+    ? '/intecapp/vistas/ADMIN/Editar_INSTRUCTOR.php?id=' . urlencode($id)
+    : '/intecapp/vistas/ADMIN/Editar_USUARIO.php?id=' . urlencode($id);
 
-$stmtCheck = $conn->prepare("SELECT id FROM usuario WHERE correo = ? AND id <> ?");
-$stmtCheck->bind_param("si", $correo, $id);
-$stmtCheck->execute();
-$stmtCheck->store_result();
-if ($stmtCheck->num_rows > 0) {
+if ($correo !== '') {
+    if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>alert('El correo electrónico no es válido.'); document.location='$backUrl';</script>";
+        exit;
+    }
+
+    $stmtCheck = $conn->prepare("SELECT id FROM usuario WHERE correo = ? AND id <> ?");
+    $stmtCheck->bind_param("si", $correo, $id);
+    $stmtCheck->execute();
+    $stmtCheck->store_result();
+    if ($stmtCheck->num_rows > 0) {
+        $stmtCheck->close();
+        echo "<script>alert('Ese correo ya está registrado con otra cuenta.'); document.location='$backUrl';</script>";
+        exit;
+    }
     $stmtCheck->close();
-    echo "<script>alert('Ese correo ya está registrado con otra cuenta.'); history.back();</script>";
-    exit;
 }
-$stmtCheck->close();
-
 // ────────────────────────────────────────────────────────────────────
 
 if ($cargo !== 'Instructor') {

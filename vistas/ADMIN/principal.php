@@ -182,7 +182,7 @@
                         <div class="task-card-photo">
 
                             <a href="../ADMIN/USUARIO.php">
-                                <img src="img/instructores.jpg" alt="Usuarios">
+                                <img src="img/usuarios.jpg" alt="Usuarios">
                             </a>
 
                         </div>
