@@ -52,42 +52,4 @@
 	}
 
 	$id_sesion = $user['id'];
-
-	// ── Bloquear "reingreso" con los botones atrás/adelante ─────────────
-	// El servidor no puede saber por sí solo si una petición vino de un
-	// clic normal o de los botones atrás/adelante del navegador; eso solo
-	// lo sabe el navegador. Por eso este script (usa la Navigation API)
-	// revisa cómo se cargó la página: si el tipo de navegación es
-	// "back_forward", significa que el usuario llegó aquí con atrás o
-	// adelante, y entonces:
-	//   1) cerramos la sesión de inmediato (logout.php), y
-	//   2) mandamos al login.
-	// Así, aunque la sesión del servidor siguiera siendo válida, no se
-	// puede "reentrar" a una pantalla ya autenticada navegando solo con
-	// el historial del navegador — hay que iniciar sesión de nuevo.
-	// IMPORTANTE: este archivo se incluye como la PRIMERA línea de cada
-	// página protegida (antes de su "<!DOCTYPE html>"). Si el <script>
-	// de abajo se imprimiera aquí directamente, sería el primer byte de
-	// la respuesta -> el navegador nunca ve un DOCTYPE válido al inicio
-	// del documento y entra en "quirks mode" para toda la página. Eso
-	// rompe de forma intermitente el cálculo de layout (flex, position:
-	// fixed, alturas en %), que es justo el tipo de desconfiguración
-	// visual (tema, barra lateral) que se veía al volver a entrar tras
-	// cambiar la contraseña.
-	// Solución: en vez de hacer echo ahora, guardamos el script y lo
-	// imprimimos hasta que termine toda la ejecución (register_shutdown_function),
-	// para que quede DESPUÉS de todo el HTML de la página (incluido el
-	// DOCTYPE), sin tener que tocar cada vista una por una.
-	register_shutdown_function(function () {
-		echo '<script>
-	(function () {
-		var entradasNav = performance.getEntriesByType("navigation");
-		var tipoNav = entradasNav.length ? entradasNav[0].type : null;
-		if (tipoNav === "back_forward") {
-			fetch("' . BASE_URL . '/controladores/logout.php", { cache: "no-store", keepalive: true });
-			window.location.replace("' . BASE_URL . '/index.php");
-		}
-	})();
-	</script>';
-	});
 ?>
